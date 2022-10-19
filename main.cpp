@@ -82,6 +82,8 @@ int main() {
 	CImage pattern_dark1 = CImage((UBYTE*)"dh0:pattern1-Dark.iff");
 	CImage pattern_dark2 = CImage((UBYTE*)"dh0:pattern2-Dark.iff");
 
+	CBitMap background = CBitMap((UBYTE*)"dh0:background.iff");
+
 	//create map as if it 3d
 	//x horizontal, y height, z depth
 	//I need this to calculate the normals
@@ -203,6 +205,8 @@ int main() {
 	//view.ViewPort()->SetWireFrame(0);
 	//enable texture filling
 	view.ViewPort()->SetTextureDraw();
+
+	view.ViewPort()->BltImg(&background, 0, 0);
 
 	for(TexturedPolygon* poly : txPolys)
 	{
